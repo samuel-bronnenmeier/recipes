@@ -85,15 +85,26 @@ export async function fetchRecipeById(id /* string */) {
 
 		const instructions = await db.all(`
 		SELECT
-		    Recipes.id,
 		    Instructions.rec_id,
 		    Instructions.step,
 		    Instructions.instruction
 		  FROM Instructions
-		  JOIN Recipes ON Instructions.rec_id = Recipes.id
-		  WHERE Recipes.id = ${id};`);
-
+		  WHERE Instructions.rec_id = ${id};`);
 		recipe.instructions = instructions;
+
+		const ingredients = await db.all(`
+			SELECT
+				Ingredients.ingredient_name,
+				Ingredients.id,
+				rec_ing.ing_id,
+				rec_ing.rec_id,
+				rec_ing.amount,
+				rec_ing.measurement,
+				rec_ing.extra
+			FROM rec_ing
+			JOIN Ingredients ON Ingredients.id = rec_ing.ing_id
+			WHERE rec_ing.rec_id = ${id};
+			`);
 
 		console.log(recipe);
 

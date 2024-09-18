@@ -13,7 +13,7 @@ CREATE TABLE rec_ing (
     rec_id INT,
     ing_id INT,
     amount INT,
-    measerument varchar(255),
+    measurement varchar(255),
     extra varchar(511),
     FOREIGN KEY (rec_id) REFERENCES Recipes(id),
     FOREIGN KEY (ing_id) REFERENCES Ingredients(id)

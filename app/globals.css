@@ -42,18 +42,18 @@ a {
 	}
 }
 
-.page {
+body {
 	--gray-rgb: 0, 0, 0;
 	--gray-alpha-200: rgba(var(--gray-rgb), 0.08);
 	--gray-alpha-100: rgba(var(--gray-rgb), 0.05);
 
-	--link-color: #006972;
+	--link-color: #007883;
 
 	font-family: var(--font-geist-sans);
 }
 
 @media (prefers-color-scheme: dark) {
-	.page {
+	body {
 		--gray-rgb: 255, 255, 255;
 		--gray-alpha-200: rgba(var(--gray-rgb), 0.145);
 		--gray-alpha-100: rgba(var(--gray-rgb), 0.06);
