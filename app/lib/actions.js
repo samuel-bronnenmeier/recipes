@@ -32,7 +32,7 @@ export async function createRecipe(prevState, formData) {
 				recipeData.ingredients.push({
 					ingredient_name: formData.get(`ingredient${num}`),
 					amount: formData.get(`ingredient${num}Amount`),
-					measurement: formData.get(`ingredient${num}Measurement`),
+					measurement: formData.get(`ingredient${num}Measurement`) || "Stk",
 					extra: formData.get(`ingredient${num}Extra`),
 				});
 			} else if (pair[0].startsWith("instruction")) {

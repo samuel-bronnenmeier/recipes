@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { CancelCreation } from "./buttons";
 import { createRecipe } from "@/app/lib/actions";
 import { categories } from "@/app/lib/definitions";
 import IngredientInput from "@/app/ui/ingedient-input";
@@ -47,10 +47,8 @@ export default function Form() {
 				<InstructionInput />
 			</div>
 
-			<div className={styles.section}>
-				<Link href="/" className="link">
-					Abbrechen
-				</Link>
+			<div className={`${styles.section} ${styles.buttonContainer}`}>
+				<CancelCreation />
 				<button type="submit">Rezept hinzufügen</button>
 			</div>
 		</form>

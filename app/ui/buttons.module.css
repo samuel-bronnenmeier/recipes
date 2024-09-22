@@ -1,0 +1,36 @@
+.button {
+	background-color: #00afbf;
+	width: fit-content;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	text-align: center;
+	display: flex;
+	gap: 1rem;
+
+	transition: background-color 150ms;
+}
+
+.grey {
+	background-color: #808080;
+}
+
+.button svg {
+	width: 1.2rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.button:hover {
+		background-color: #018d9a;
+	}
+
+	.button.grey:hover {
+		background-color: #6a6a6a;
+	}
+}
+
+@media (max-width: 600px) {
+	.button span {
+		display: none;
+	}
+}

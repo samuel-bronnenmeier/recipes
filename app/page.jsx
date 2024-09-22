@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 import RecipeList from "./ui/recipe-list";
+import { CreateRecipe } from "./ui/buttons";
 
 export default function Home() {
 	return (
@@ -10,9 +11,7 @@ export default function Home() {
 			<h1 className="mainHeading">Das digitale Rezeptbuch</h1>
 
 			<div className="section">
-				<Link href={"./create"} className="link">
-					Neues Rezept
-				</Link>
+				<CreateRecipe />
 			</div>
 
 			<div className="section">
