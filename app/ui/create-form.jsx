@@ -35,6 +35,11 @@ export default function Form() {
 			</div>
 
 			<div className={styles.section}>
+				<label htmlFor="portions">Anzahl der Portionen</label>
+				<input type="number" name="portions" id="portions" defaultValue="4" />
+			</div>
+
+			<div className={styles.section}>
 				<IngredientInput />
 			</div>
 

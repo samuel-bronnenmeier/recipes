@@ -78,7 +78,8 @@ export async function fetchRecipeById(id /* string */) {
       SELECT
         Recipes.id,
         Recipes.category,
-        Recipes.recipe_name
+        Recipes.recipe_name,
+				Recipes.portions
       FROM Recipes
       WHERE Recipes.id = ${id};
     `);
@@ -105,7 +106,7 @@ export async function fetchRecipeById(id /* string */) {
 			`);
 		recipe.ingredients = ingredients;
 
-		console.log(recipe);
+		// console.log(recipe);
 
 		return recipe;
 	} catch (error) {

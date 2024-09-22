@@ -42,6 +42,12 @@ function SingleIngredient({ number }) {
 				name={`ingredient${number}Measurement`}
 				id={`ingredient-${number}-measurement`}
 			/>
+			<label htmlFor={`ingredient${number}Extra`}>Extras</label>
+			<input
+				type="text"
+				name={`ingredient${number}Extra`}
+				id={`ingredient-${number}-extra`}
+			/>
 		</div>
 	);
 }

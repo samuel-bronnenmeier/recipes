@@ -1,7 +1,8 @@
 CREATE TABLE Recipes (
     id INTEGER PRIMARY KEY,
     category varchar(255),
-    recipe_name varchar(511)
+    recipe_name varchar(511),
+    portions INT
 );
 
 CREATE TABLE Ingredients (

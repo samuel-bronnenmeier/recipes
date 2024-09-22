@@ -1,5 +1,6 @@
 import { fetchRecipeById } from "@/app/lib/data";
 import Link from "next/link";
+import IngredientTable from "@/app/ui/ingredient-table";
 
 export default async function Page(
 	{ params } /*: {
@@ -19,8 +20,13 @@ export default async function Page(
 			</Link>
 
 			<h1 className="mainHeading">
-				{recipe.id} - {recipe.recipe_name}
+				{recipe.recipe_name} (id {recipe.id})
 			</h1>
+
+			{/* TODO: single number input with dynamic client side amount updates */}
+			<div>für {recipe.portions} Portionen</div>
+
+			<IngredientTable ingredients={recipe.ingredients} />
 
 			<ol>
 				{recipe.instructions.map((inst) => (

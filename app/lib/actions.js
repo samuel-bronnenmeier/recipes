@@ -19,32 +19,35 @@ export async function createRecipe(prevState, formData) {
 	const recipeData = {
 		recipeCategory: "",
 		recipeName: "",
+		portions: 4,
 		ingredients: [],
 		instructions: [],
 	};
 	const regex = new RegExp(/\d+([a-zA-Z]+)$/);
 
 	for (const pair of formData.entries()) {
-		if (pair[0].startsWith("ingredient") && !regex.test(pair[0])) {
-			const num = pair[0].replace(/^\D+|\D+$/g, "");
-			recipeData.ingredients.push({
-				ingredient_name: formData.get(`ingredient${num}`),
-				amount: formData.get(`ingredient${num}Amount`),
-				measurement: formData.get(`ingredient${num}Measurement`),
-				extra: "none",
-			});
-		} else if (pair[0].startsWith("instruction")) {
-			recipeData.instructions.push(pair[1]);
-		} else if (Object.hasOwn(recipeData, pair[0])) {
-			recipeData[pair[0]] = pair[1];
+		if (pair[1]) {
+			if (pair[0].startsWith("ingredient") && !regex.test(pair[0])) {
+				const num = pair[0].replace(/^\D+|\D+$/g, "");
+				recipeData.ingredients.push({
+					ingredient_name: formData.get(`ingredient${num}`),
+					amount: formData.get(`ingredient${num}Amount`),
+					measurement: formData.get(`ingredient${num}Measurement`),
+					extra: formData.get(`ingredient${num}Extra`),
+				});
+			} else if (pair[0].startsWith("instruction")) {
+				recipeData.instructions.push(pair[1]);
+			} else if (Object.hasOwn(recipeData, pair[0])) {
+				recipeData[pair[0]] = pair[1];
+			}
 		}
 	}
 
 	console.log(recipeData);
 
 	const insertRecipe = `
-	INSERT INTO Recipes(category, recipe_name)
-	VALUES ('${recipeData.recipeCategory}', '${recipeData.recipeName}');`;
+	INSERT INTO Recipes(category, recipe_name, portions)
+	VALUES ('${recipeData.recipeCategory}', '${recipeData.recipeName}', '${recipeData.portions}');`;
 
 	try {
 		let recipeId = 0;
