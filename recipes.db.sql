@@ -6,17 +6,12 @@ CREATE TABLE Recipes (
 
 CREATE TABLE Ingredients (
     id INTEGER PRIMARY KEY,
-    ingredient_name varchar(255)
-);
-
-CREATE TABLE rec_ing (
     rec_id INT,
-    ing_id INT,
+    ingredient_name varchar(255),
     amount INT,
     measurement varchar(255),
     extra varchar(511),
-    FOREIGN KEY (rec_id) REFERENCES Recipes(id),
-    FOREIGN KEY (ing_id) REFERENCES Ingredients(id)
+    FOREIGN KEY (rec_id) REFERENCES Recipes(id)
 );
 
 CREATE TABLE Instructions (

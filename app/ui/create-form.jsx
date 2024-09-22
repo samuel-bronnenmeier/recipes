@@ -13,25 +13,9 @@ export default function Form() {
 	const initialState = { message: null, errors: {} };
 	const [state, formAction] = useFormState(createRecipe, initialState);
 
-	// const values4 = [
-	// 	"Zorua",
-	// 	"Basic Pokemon. HP 60. Stampede 10. Ram 20. Weakness: Fighting x2, Resistance: Psychic -20. Retreat Cost: 1.",
-	// 	"/collection/item4.png",
-	// ];
-
-	// const insertSql = `INSERT INTO items(name, description, img) VALUES(?, ?, ?)`;
-
-	// db.run(insertSql, values1, function (err) {
-	// 	if (err) {
-	// 		return console.error(err.message);
-	// 	}
-	// 	const id = this.lastID; // get the id of the last inserted row
-	// 	console.log(`Rows inserted, ID ${id}`);
-	// });
-
 	return (
 		<form action={formAction}>
-			<div className="section">
+			<div className={styles.section}>
 				<label htmlFor="recipeCategory">Kategorie</label>
 				<select name="recipeCategory" id="recipeCategory" defaultValue="">
 					<option value="" disabled>
@@ -45,20 +29,20 @@ export default function Form() {
 				</select>
 			</div>
 
-			<div className="section">
+			<div className={styles.section}>
 				<label htmlFor="recipeName">Titel</label>
 				<input type="text" name="recipeName" id="recipeName" />
 			</div>
 
-			<div className="section">
+			<div className={styles.section}>
 				<IngredientInput />
 			</div>
 
-			<div className="section">
+			<div className={styles.section}>
 				<InstructionInput />
 			</div>
 
-			<div className="section">
+			<div className={styles.section}>
 				<Link href="/" className="link">
 					Abbrechen
 				</Link>
