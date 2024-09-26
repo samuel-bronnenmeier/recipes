@@ -1,6 +1,6 @@
 "use client";
 
-import { CancelCreation } from "./buttons";
+import { CancelCreation, SubmitForm } from "./buttons";
 import { createRecipe } from "@/app/lib/actions";
 import { categories } from "@/app/lib/definitions";
 import IngredientInput from "@/app/ui/ingedient-input";
@@ -14,9 +14,9 @@ export default function Form() {
 	const [state, formAction] = useFormState(createRecipe, initialState);
 
 	return (
-		<form action={formAction}>
+		<form action={formAction} className={styles.form}>
 			<div className={styles.section}>
-				<label htmlFor="recipeCategory">Kategorie</label>
+				<label htmlFor="recipeCategory">Kategorie:</label>
 				<select name="recipeCategory" id="recipeCategory" defaultValue="">
 					<option value="" disabled>
 						Kategorie wählen
@@ -30,26 +30,28 @@ export default function Form() {
 			</div>
 
 			<div className={styles.section}>
-				<label htmlFor="recipeName">Titel</label>
+				<label htmlFor="recipeName">Titel:</label>
 				<input type="text" name="recipeName" id="recipeName" />
 			</div>
 
 			<div className={styles.section}>
-				<label htmlFor="portions">Anzahl der Portionen</label>
+				<label htmlFor="portions">Anzahl der Portionen:</label>
 				<input type="number" name="portions" id="portions" defaultValue="4" />
 			</div>
 
 			<div className={styles.section}>
+				<div>Zutaten:</div>
 				<IngredientInput />
 			</div>
 
 			<div className={styles.section}>
+				<div>Zubereitung:</div>
 				<InstructionInput />
 			</div>
 
-			<div className={`${styles.section} ${styles.buttonContainer}`}>
+			<div className={`${styles.buttonContainer}`}>
 				<CancelCreation />
-				<button type="submit">Rezept hinzufügen</button>
+				<SubmitForm />
 			</div>
 		</form>
 	);

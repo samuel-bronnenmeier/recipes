@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "@/app/ui/ingredient-input.module.css";
 
 export default function IngredientInput() {
 	const [state, setState] = useState(1);
@@ -23,8 +24,8 @@ export default function IngredientInput() {
 
 function SingleIngredient({ number }) {
 	return (
-		<div>
-			<label htmlFor={`ingredient${number}`}>Zutat {number}</label>
+		<div className={styles.row}>
+			<label htmlFor={`ingredient${number}`}>Zutat {number}:</label>
 			<input
 				type="text"
 				name={`ingredient${number}`}

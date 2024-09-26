@@ -24,7 +24,7 @@ export default function InstructionInput() {
 function SingleInstruction({ number }) {
 	return (
 		<div>
-			<label htmlFor={`instruction${number}`}>Schritt {number}</label>
+			<label htmlFor={`instruction${number}`}>Schritt {number}:</label>
 			<textarea name={`instruction${number}`} id={`instruction-${number}`} />
 		</div>
 	);

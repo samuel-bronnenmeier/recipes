@@ -19,7 +19,7 @@ export default function IngredientTable({ ingredients }) {
 							<td>{ing.amount}</td>
 							<td>{ing.measurement}</td>
 							<td>{ing.ingredient_name}</td>
-							<td>({ing.extra})</td>
+							<td>{ing.extra ? `(${ing.extra})` : ""}</td>
 						</tr>
 					))}
 				</tbody>

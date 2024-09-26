@@ -1,8 +1,40 @@
-div.section {
-	margin: 1rem;
+.form {
+	border: 1px solid grey;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	width: fit-content;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+}
+
+.section input,
+.section select {
+	font-size: 1.2rem;
+	width: 40%;
+}
+
+.buttonContainer {
+	display: block;
 }
 
 div.buttonContainer {
 	display: flex;
 	gap: 1rem;
+}
+
+@media (max-width: 600px) {
+	.form {
+		width: 100%;
+	}
+	.section input,
+	.section select {
+		width: 100%;
+	}
 }

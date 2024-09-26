@@ -1,0 +1,12 @@
+div.row {
+	display: flex;
+	align-items: center;
+}
+
+div.row label {
+	display: none;
+}
+
+div.row:nth-child(1) label {
+	display: block;
+}
