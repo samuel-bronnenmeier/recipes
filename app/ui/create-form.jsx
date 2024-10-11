@@ -3,7 +3,7 @@
 import { CancelCreation, SubmitForm } from "./buttons";
 import { createRecipe } from "@/app/lib/actions";
 import { categories } from "@/app/lib/definitions";
-import IngredientInput from "@/app/ui/ingedient-input";
+import IngredientInput from "@/app/ui/ingredient-input";
 import InstructionInput from "@/app/ui/instruction-input";
 import { useFormState } from "react-dom";
 

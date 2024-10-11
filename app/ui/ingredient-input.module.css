@@ -1,4 +1,21 @@
+div.table {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+div.label {
+	display: flex;
+	justify-content: space-between;
+}
+
+div.label1 {
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+
 div.row {
+	grid-column-start: 1;
+	grid-column-end: 5;
 	display: flex;
 	align-items: center;
 }
@@ -7,6 +24,6 @@ div.row label {
 	display: none;
 }
 
-div.row:nth-child(1) label {
+div.row label:first-of-type {
 	display: block;
 }

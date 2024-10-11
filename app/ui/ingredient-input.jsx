@@ -9,16 +9,21 @@ export default function IngredientInput() {
 	}
 
 	return (
-		<>
+		<div className={styles.table}>
+			<div className={`${styles.label} ${styles.label1}`}>Menge</div>
+			<div className={`${styles.label} ${styles.label2}`}>Einheit</div>
+			<div className={`${styles.label} ${styles.label3}`}>Extras</div>
+
 			{Array(state)
 				.fill(true)
 				.map((_, i) => (
 					<SingleIngredient number={i + 1} key={i + 1} />
 				))}
+
 			<button type="button" onClick={handleClick}>
 				Zutat hinzufügen
 			</button>
-		</>
+		</div>
 	);
 }
 
